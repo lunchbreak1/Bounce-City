@@ -54,5 +54,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject other = collision.gameObject;
+        if (other.CompareTag("Trampoline"))
+        {
+            body.AddForce(Vector2.up * jumpPower);
+            jumpPower *= jumpFactor;
+        }
     }
 }
